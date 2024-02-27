@@ -13,9 +13,7 @@ app.use("/", authRouter);
 
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(
-    "mongodb+srv://vadean:5dttKW0ScIk5rNLr@cluster0.aeqvqhl.mongodb.net/?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGO_DB_KEY)
   .then(() => {
     console.log("connected to MongoDB");
     app.listen(3000, () => {
